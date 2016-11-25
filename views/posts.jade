@@ -21,6 +21,7 @@ html(lang="jp")
         textarea(name="content", class="form-control", rows="4")
       div(class="form-group")
         button(type="submit", class="btn btn-info pull-right") 投稿
+        button(type="reset", class="btn btn-danger pull-right") 取消
       div(class="row")
     h2 投稿一覧
     each post in posts
@@ -34,10 +35,10 @@ html(lang="jp")
         div(class="panel-body")
           p!= post.content
         div(class="panel-footer")
-          div 投稿日時: #{post.createdAt}
+          div(class="pull-left") 投稿日時: #{post.formattedCreatedAt}
           - var isAdmin = (user === 'admin')
           if isAdmin
-            div 投稿者: #{post.postedBy}
+            div(class="pull-left") : 投稿者: #{post.postedBy}
           - var isDeletable = (user === post.postedBy || isAdmin)
           if isDeletable
             form(method="post", action="/posts?delete=1")
