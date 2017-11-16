@@ -34,7 +34,7 @@ html(lang="jp")
         div(class="panel-body")
           p!= post.content
         div(class="panel-footer")
-          div 投稿日時: #{post.createdAt}
+          div(class="posted-time") 投稿日時: #{post.createdAt}
           - var isAdmin = (user === 'admin')
           if isAdmin
             div 投稿者: #{post.postedBy}
@@ -48,3 +48,15 @@ html(lang="jp")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js",
     integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS",
     crossorigin="anonymous")
+    script(type="text/javascript").
+      const displayTime = document.getElementsByClassName('posted-time');
+      for(let replaceTime of displayTime) {
+        const date = new Date(replaceTime.textContent.slice(6, replaceTime.textContent.length));
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+        const hour = date.getHours();
+        const minutes = date.getMinutes();
+        const second = date.getSeconds();
+        replaceTime.innerText = `投稿日時: ${year}年${month}月${day}日 ${hour}時${minutes}分${second}秒`;
+      }
