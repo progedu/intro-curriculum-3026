@@ -34,7 +34,7 @@ html(lang="jp")
         div(class="panel-body")
           p!= post.content
         div(class="panel-footer")
-          div 投稿日時: #{post.createdAt}
+          div 投稿日時: #{post.formattedCreatedAt}
           - var isAdmin = (user === 'admin')
           if isAdmin
             div 投稿者: #{post.postedBy}
