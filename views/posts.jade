@@ -34,7 +34,7 @@ html(lang="jp")
         div(class="panel-body")
           p!= post.content
         div(class="panel-footer")
-          div 投稿日時: #{post.createdAt}
+          div 投稿日時: #{post.formattedCreatedAt}
           - var isAdmin = (user === 'admin')
           if isAdmin
             div 投稿者: #{post.postedBy}
@@ -44,6 +44,7 @@ html(lang="jp")
               input(type="hidden", name="id", value="#{post.id}")
               button(type="submit", class="btn btn-danger pull-right") 削除
               div(class="row")
+
     script(src="https://code.jquery.com/jquery-2.2.0.min.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js",
     integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS",
