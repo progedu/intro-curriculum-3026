@@ -13,14 +13,14 @@ html(lang="jp")
     title 秘密の匿名掲示板
   body(class="container")
     div(class="page-header")
-      a(href="/logout", class="btn btn-info pull-right") ログアウト
+      a(href="/logout" class="btn btn-info pull-right") ログアウト
       h1 秘密の匿名掲示板
     h2 新規投稿
-    form(method="post", action="/posts")
+    form(method="post" action="/posts")
       div(class="form-group")
-        textarea(name="content", class="form-control", rows="4")
+        textarea(name="content" class="form-control" rows="4")
       div(class="form-group")
-        button(type="submit", class="btn btn-info pull-right") 投稿
+        button(type="submit" class="btn btn-info pull-right") 投稿
       div(class="row")
     h2 投稿一覧
     each post in posts
@@ -40,9 +40,9 @@ html(lang="jp")
             div 投稿者: #{post.postedBy}
           - var isDeletable = (user === post.postedBy || isAdmin)
           if isDeletable
-            form(method="post", action="/posts?delete=1")
-              input(type="hidden", name="id", value="#{post.id}")
-              button(type="submit", class="btn btn-danger pull-right") 削除
+            form(method="post" action="/posts?delete=1")
+              input(type="hidden" name="id" value=post.id)
+              button(type="submit" class="btn btn-danger pull-right") 削除
               div(class="row")
     script(src="https://code.jquery.com/jquery-2.2.0.min.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js",
