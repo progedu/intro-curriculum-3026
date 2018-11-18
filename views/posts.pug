@@ -9,14 +9,15 @@ html(lang="ja")
     title 秘密の匿名掲示板
   body.container
     div.my-3
-      a(href="/logout").btn.btn-info.float-right ログアウト
-      h1 秘密の匿名掲示板
+      a(href="/logout").btn.btn-success.float-right ログアウト
+      h1.bg-warning 秘密の匿名掲示板
+        small.text-muted ３章２６節：デザインの改善より
     h2 新規投稿
-    form(method="post" action="/posts")
+    form(method="post" action="/posts" placeholder="ここに入力してください")
       div.form-group
         textarea(name="content" rows="4").form-control
       div.form-group
-        button(type="submit").btn.btn-primary 投稿
+        button(type="submit").btn.btn-primary.btn-lg 投稿
     h2 投稿一覧
     each post in posts
       div.card.my-3
