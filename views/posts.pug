@@ -23,13 +23,13 @@ html(lang="ja")
         div.card-header
             - var isPostedByAdmin = (post.postedBy === 'admin')
             if isPostedByAdmin
-              span #{post.id} : 管理人 ★
+              span #{post.id} : 管理人 ★ #{post.test}
             else
               span #{post.id} : ID:#{post.trackingCookie}      
         div.card-body
           p.card-text!=post.content
         div.card-footer
-            div 投稿日時: #{post.createdAt}
+            div 投稿日時: #{post.formattedCreatedAt}
             - var isAdmin = (user === 'admin')
             if isAdmin
               div 投稿者: #{post.postedBy}
