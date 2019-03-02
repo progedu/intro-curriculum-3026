@@ -32,7 +32,7 @@ html(lang="ja")
             div 投稿日時: #{post.createdAt}
             - var isAdmin = (user === 'admin')
             if isAdmin
-              div 投稿者: #{post.postedBy}
+              div 投稿者: #{post.formattedCreatedAt}
             - var isDeletable = (user === post.postedBy || isAdmin)
             if isDeletable
               form(method="post" action="/posts?delete=1")
