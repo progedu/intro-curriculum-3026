@@ -1,0 +1,8 @@
+{
+  "name": "notes",
+  "description": "test",
+  "repository": "https://github.com/batsu02/intro-curriculum-3026",
+  "logo": "",
+  "keywords": ["node"],
+  "image": "heroku/nodejs"
+}
