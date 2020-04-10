@@ -25,7 +25,7 @@ html(lang="ja")
             if isPostedByAdmin
               span #{post.id} : 管理人 ★
             else
-              span #{post.id} : ID:#{post.trackingCookie}      
+              span #{post.id} : ID:#{post.formattedCreatedAt}      
         div.card-body
           p.card-text!=post.content
         div.card-footer
