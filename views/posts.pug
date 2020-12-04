@@ -11,10 +11,11 @@ html(lang="ja")
     div.my-3
       a(href="/logout").btn.btn-info.float-right ログアウト
       h1 秘密の匿名掲示板
+      span.badge.badge-success  #{user}でログイン中
     h2 新規投稿
     form(method="post" action="/posts")
       div.form-group
-        textarea(name="content" rows="4").form-control
+        textarea(name="content" rows="4").form-control.border.border-dark
       div.form-group
         button(type="submit").btn.btn-primary 投稿
     h2 投稿一覧
@@ -29,7 +30,7 @@ html(lang="ja")
         div.card-body
           p.card-text!=post.content
         div.card-footer
-            div 投稿日時: #{post.createdAt}
+            div 投稿日時: #{post.formattedCreatedAt}
             - var isAdmin = (user === 'admin')
             if isAdmin
               div 投稿者: #{post.postedBy}
