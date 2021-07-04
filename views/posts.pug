@@ -9,15 +9,16 @@ html(lang="ja")
     title 秘密の匿名掲示板
   body.container
     div.my-3
-      a(href="/logout").btn.btn-info.float-right ログアウト
       h1 秘密の匿名掲示板
+        small.text-muted ３章２６節：デザインの改善より
+    a(href="/logout").btn.btn-success.px-5.float-right ログアウト
     h2 新規投稿
-    form(method="post" action="/posts")
+    form(method="post" action="/posts" placeholder="入力してください")
       div.form-group
         textarea(name="content" rows="4").form-control
       div.form-group
-        button(type="submit").btn.btn-primary 投稿
-    h2 投稿一覧
+        button(type="submit").btn.btn-primary.btn-lg 投稿
+    h2.bg-warning 投稿一覧
     each post in posts
       div.card.my-3
         div.card-header
@@ -29,7 +30,7 @@ html(lang="ja")
         div.card-body
           p.card-text!=post.content
         div.card-footer
-            div 投稿日時: #{post.createdAt}
+            div 投稿日時: #{post.formattedCreatedAt}
             - var isAdmin = (user === 'admin')
             if isAdmin
               div 投稿者: #{post.postedBy}
