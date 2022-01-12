@@ -29,8 +29,7 @@ html(lang="ja")
         div.card-body
           p.card-text!=post.content
         div.card-footer
-            div 投稿日時: #{post.createdAt}
-            - var isAdmin = (user === 'admin')
+            div 投稿日時: #{post.formattedCreatedAt}
             if isAdmin
               div 投稿者: #{post.postedBy}
             - var isDeletable = (user === post.postedBy || isAdmin)
